@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kingdom Protista — อาณาจักรโพรทิสต์</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500;600&family=Prompt:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-slide="0">
+
+<!-- ============ SVG library (วาดด้วยโค้ดทั้งหมด) ============ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="gCell" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#99f6e4" stop-opacity=".55"/><stop offset="1" stop-color="#0891b2" stop-opacity=".35"/></linearGradient>
+    <linearGradient id="gGreen" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#bbf7d0" stop-opacity=".8"/><stop offset="1" stop-color="#15803d" stop-opacity=".65"/></linearGradient>
+    <linearGradient id="gGold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fde68a"/><stop offset="1" stop-color="#b45309"/></linearGradient>
+    <linearGradient id="gBrown" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#d6a05a"/><stop offset="1" stop-color="#78350f"/></linearGradient>
+    <linearGradient id="gRed" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fda4af"/><stop offset="1" stop-color="#9f1239"/></linearGradient>
+    <radialGradient id="gNuc"><stop offset="0" stop-color="#a78bfa"/><stop offset="1" stop-color="#4c1d95"/></radialGradient>
+  </defs>
+
+  <!-- Amoeba -->
+  <symbol id="amoeba" viewBox="0 0 300 220">
+    <path d="M96,112 C82,96 54,96 40,80 C34,66 52,58 66,66 C74,50 96,46 110,56 C124,34 158,34 170,54 C196,44 226,58 224,84 C250,86 268,110 252,130 C262,150 244,172 218,168 C206,190 170,194 156,176 C136,196 104,190 100,168 C78,176 58,160 68,142 C58,134 70,120 96,112 Z" fill="url(#gCell)" stroke="#99f6e4" stroke-width="2.5" stroke-linejoin="round"/>
+    <g fill="#ccfbf1" opacity=".45"><circle cx="120" cy="80" r="2.5"/><circle cx="188" cy="104" r="2.5"/><circle cx="130" cy="150" r="2.5"/><circle cx="214" cy="120" r="2.5"/><circle cx="90" cy="110" r="2.5"/><circle cx="170" cy="150" r="2.5"/></g>
+    <circle cx="150" cy="108" r="22" fill="url(#gNuc)" stroke="#c4b5fd" stroke-width="1.5"/>
+    <circle cx="150" cy="108" r="7" fill="#ede9fe" opacity=".8"/>
+    <circle cx="104" cy="138" r="11" fill="#fef9c3" fill-opacity=".5" stroke="#fde68a"/>
+    <circle cx="200" cy="142" r="9" fill="#fef9c3" fill-opacity=".5" stroke="#fde68a"/>
+    <circle cx="196" cy="82" r="10" fill="#bae6fd" fill-opacity=".35" stroke="#7dd3fc"/>
+  </symbol>
+
+  <!-- Paramecium -->
+  <symbol id="paramecium" viewBox="0 0 300 220">
+    <path id="pOutline" d="M50,120 C50,70 120,50 190,62 C250,72 275,100 262,128 C250,158 180,172 120,166 C70,160 50,145 50,120 Z" fill="url(#gCell)" stroke="#99f6e4" stroke-width="2"/>
+    <path d="M50,120 C50,70 120,50 190,62 C250,72 275,100 262,128 C250,158 180,172 120,166 C70,160 50,145 50,120 Z" fill="none" stroke="#99f6e4" stroke-width="9" stroke-dasharray="1.6 4.4" opacity=".7"/>
+    <path d="M70,142 C100,142 125,130 148,118" fill="none" stroke="#115e59" stroke-width="7" stroke-linecap="round" opacity=".9"/>
+    <ellipse cx="172" cy="110" rx="26" ry="17" fill="url(#gNuc)" stroke="#c4b5fd" stroke-width="1.5"/>
+    <circle cx="204" cy="94" r="6" fill="#ddd6fe" stroke="#a78bfa"/>
+    <g stroke="#7dd3fc" stroke-width="1.5" opacity=".8"><path d="M88,100 m-10,0 h-4 M88,100 m10,0 h4 M88,100 m0,-10 v-4 M88,100 m0,10 v4"/><path d="M240,124 m-10,0 h-4 M240,124 m10,0 h4 M240,124 m0,-10 v-4 M240,124 m0,10 v4"/></g>
+    <circle cx="88" cy="100" r="9" fill="#bae6fd" fill-opacity=".4" stroke="#7dd3fc"/>
+    <circle cx="240" cy="124" r="9" fill="#bae6fd" fill-opacity=".4" stroke="#7dd3fc"/>
+    <g fill="#fef9c3" fill-opacity=".5" stroke="#fde68a"><circle cx="130" cy="138" r="8"/><circle cx="152" cy="146" r="7"/><circle cx="206" cy="142" r="8"/></g>
+  </symbol>
+
+  <!-- Trypanosoma -->
+  <symbol id="trypano" viewBox="0 0 300 220">
+    <g fill="#fb7185" fill-opacity=".16" stroke="#fda4af" stroke-opacity=".5"><circle cx="46" cy="52" r="32"/><circle cx="252" cy="172" r="32"/><circle cx="104" cy="190" r="26"/><circle cx="262" cy="104" r="22"/></g>
+    <path d="M64,120 C76,84 100,70 122,76 C140,80 152,70 170,80 C190,92 214,82 232,80 C240,78 246,74 252,72 C232,98 205,106 172,98 C130,86 88,96 64,120 Z" fill="#f9a8d4" fill-opacity=".35" stroke="#f9a8d4" stroke-width="1.5"/>
+    <path d="M46,156 C70,96 120,84 170,98 C205,108 232,98 252,76 C236,112 204,134 166,134 C120,134 80,142 46,156 Z" fill="url(#gCell)" stroke="#99f6e4" stroke-width="2.5" stroke-linejoin="round"/>
+    <path d="M252,74 C262,60 276,56 290,46" fill="none" stroke="#67e8f9" stroke-width="2.5" stroke-linecap="round"/>
+    <ellipse cx="150" cy="114" rx="17" ry="11" fill="url(#gNuc)" stroke="#c4b5fd"/>
+    <circle cx="78" cy="143" r="4.5" fill="#1e1b4b" stroke="#a78bfa"/>
+  </symbol>
+
+  <!-- Giardia -->
+  <symbol id="giardia" viewBox="0 0 300 220">
+    <g fill="none" stroke="#67e8f9" stroke-width="2.2" stroke-linecap="round">
+      <path d="M104,100 C78,108 64,128 66,150"/><path d="M112,140 C88,152 80,172 86,192"/><path d="M124,168 C108,180 104,196 112,210"/>
+      <path d="M196,100 C222,108 236,128 234,150"/><path d="M188,140 C212,152 220,172 214,192"/><path d="M176,168 C192,180 196,196 188,210"/>
+      <path d="M146,200 C142,212 138,216 134,218"/><path d="M154,200 C158,212 162,216 166,218"/>
+    </g>
+    <path d="M150,24 C218,24 238,86 210,132 C192,162 170,186 150,202 C130,186 108,162 90,132 C62,86 82,24 150,24 Z" fill="url(#gCell)" stroke="#99f6e4" stroke-width="2.5" stroke-linejoin="round"/>
+    <ellipse cx="150" cy="76" rx="52" ry="42" fill="none" stroke="#ccfbf1" stroke-width="1.8" stroke-dasharray="5 4" opacity=".8"/>
+    <circle cx="130" cy="70" r="14" fill="url(#gNuc)" stroke="#c4b5fd"/><circle cx="170" cy="70" r="14" fill="url(#gNuc)" stroke="#c4b5fd"/>
+    <circle cx="130" cy="70" r="4" fill="#ede9fe"/><circle cx="170" cy="70" r="4" fill="#ede9fe"/>
+    <path d="M136,128 C146,138 154,138 164,128" fill="none" stroke="#1e1b4b" stroke-width="5" stroke-linecap="round" opacity=".7"/>
+  </symbol>
+
+  <!-- Euglena -->
+  <symbol id="euglena" viewBox="0 0 300 220">
+    <path d="M70,108 C50,104 46,84 30,78 C20,74 14,66 8,60" fill="none" stroke="#67e8f9" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M70,110 C80,82 130,72 190,84 C230,92 262,106 270,114 C262,122 230,138 190,146 C130,158 80,140 70,110 Z" fill="url(#gCell)" stroke="#99f6e4" stroke-width="2.5" stroke-linejoin="round"/>
+    <g fill="#4ade80" stroke="#166534" stroke-width="1" fill-opacity=".85">
+      <ellipse cx="118" cy="100" rx="13" ry="6" transform="rotate(-18 118 100)"/>
+      <ellipse cx="146" cy="94" rx="13" ry="6" transform="rotate(-8 146 94)"/>
+      <ellipse cx="126" cy="128" rx="13" ry="6" transform="rotate(14 126 128)"/>
+      <ellipse cx="158" cy="128" rx="13" ry="6" transform="rotate(8 158 128)"/>
+      <ellipse cx="108" cy="116" rx="9" ry="5"/>
+    </g>
+    <circle cx="194" cy="114" r="14" fill="url(#gNuc)" stroke="#c4b5fd"/>
+    <circle cx="96" cy="99" r="4.5" fill="#fb923c"/>
+    <circle cx="80" cy="120" r="8" fill="#bae6fd" fill-opacity=".4" stroke="#7dd3fc"/>
+  </symbol>
+
+  <!-- Diatom (centric) -->
+  <symbol id="diatom" viewBox="0 0 300 220">
+    <circle cx="150" cy="110" r="84" fill="url(#gGold)" stroke="#fde68a" stroke-width="3"/>
+    <circle cx="150" cy="110" r="70" fill="none" stroke="#fffbeb" stroke-width="2" opacity=".6"/>
+    <circle cx="150" cy="110" r="52" fill="none" stroke="#fffbeb" stroke-width="30" stroke-dasharray="2 9.6" opacity=".45"/>
+    <circle cx="150" cy="110" r="24" fill="#fef3c7" fill-opacity=".5" stroke="#fde68a"/>
+    <circle cx="150" cy="110" r="9" fill="#92400e" opacity=".7"/>
+  </symbol>
+
+  <!-- Dinoflagellate -->
+  <symbol id="dino" viewBox="0 0 300 220">
+    <path d="M150,36 L150,16" stroke="#99f6e4" stroke-width="3" stroke-linecap="round"/>
+    <path d="M150,36 C200,36 214,92 210,130 C206,168 180,186 150,186 C120,186 94,168 90,130 C86,92 100,36 150,36 Z" fill="url(#gCell)" stroke="#99f6e4" stroke-width="2.5"/>
+    <g fill="none" stroke="#ccfbf1" stroke-width="1.4" opacity=".6">
+      <path d="M150,38 L150,100"/><path d="M124,44 C120,70 118,90 118,100"/><path d="M176,44 C180,70 182,90 182,100"/>
+      <path d="M118,118 C116,140 124,170 130,184"/><path d="M182,118 C184,140 176,170 170,184"/><path d="M150,122 L150,186"/>
+    </g>
+    <path d="M90,108 C120,122 180,122 210,108" fill="none" stroke="#0e7490" stroke-width="10" opacity=".65"/>
+    <path d="M88,106 q8,-9 16,0 t16,0 t16,0 t16,0 t16,0 t16,0 t16,0 t16,0" fill="none" stroke="#67e8f9" stroke-width="2.4" stroke-linecap="round"/>
+    <path d="M152,122 C160,150 150,170 152,188 C154,200 146,208 150,216" fill="none" stroke="#67e8f9" stroke-width="2.4" stroke-linecap="round"/>
+    <circle cx="150" cy="154" r="16" fill="url(#gNuc)" stroke="#c4b5fd"/>
+    <g fill="#b45309" fill-opacity=".8"><circle cx="120" cy="80" r="4"/><circle cx="180" cy="80" r="4"/><circle cx="134" cy="62" r="3.5"/><circle cx="166" cy="62" r="3.5"/><circle cx="122" cy="150" r="3.5"/><circle cx="178" cy="150" r="3.5"/></g>
+  </symbol>
+
+  <!-- Volvox -->
+  <symbol id="volvox" viewBox="0 0 300 220">
+    <circle cx="150" cy="110" r="88" fill="url(#gGreen)" fill-opacity=".25" stroke="#86efac" stroke-width="2"/>
+    <circle cx="150" cy="110" r="88" fill="none" stroke="#4ade80" stroke-width="7" stroke-linecap="round" stroke-dasharray="0.1 13.8"/>
+    <circle cx="120" cy="100" r="26" fill="#bbf7d0" fill-opacity=".18" stroke="#86efac"/>
+    <circle cx="120" cy="100" r="26" fill="none" stroke="#4ade80" stroke-width="5" stroke-linecap="round" stroke-dasharray="0.1 9"/>
+    <circle cx="182" cy="128" r="22" fill="#bbf7d0" fill-opacity=".18" stroke="#86efac"/>
+    <circle cx="182" cy="128" r="22" fill="none" stroke="#4ade80" stroke-width="5" stroke-linecap="round" stroke-dasharray="0.1 8"/>
+  </symbol>
+
+  <!-- Brown alga (kelp-like) -->
+  <symbol id="kelp" viewBox="0 0 300 220">
+    <g fill="none" stroke="#a16207" stroke-width="4" stroke-linecap="round">
+      <path d="M150,196 C134,200 122,198 110,208"/><path d="M150,196 C146,204 142,210 136,216"/><path d="M150,196 C166,200 178,198 190,208"/><path d="M150,196 C154,204 158,210 164,216"/>
+    </g>
+    <path d="M150,198 C146,160 156,120 150,84" fill="none" stroke="#a16207" stroke-width="7" stroke-linecap="round"/>
+    <path d="M150,110 C100,100 70,60 60,24 C110,34 140,64 150,110 Z" fill="url(#gBrown)" stroke="#f59e0b" stroke-width="1.5" stroke-linejoin="round"/>
+    <path d="M150,110 C200,100 230,60 240,24 C190,34 160,64 150,110 Z" fill="url(#gBrown)" stroke="#f59e0b" stroke-width="1.5" stroke-linejoin="round"/>
+    <path d="M150,88 C128,62 138,30 150,8 C162,30 172,62 150,88 Z" fill="url(#gBrown)" stroke="#f59e0b" stroke-width="1.5" stroke-linejoin="round"/>
+    <circle cx="136" cy="100" r="7" fill="#fde68a" fill-opacity=".85" stroke="#b45309"/><circle cx="164" cy="100" r="7" fill="#fde68a" fill-opacity=".85" stroke="#b45309"/>
+  </symbol>
+
+  <!-- Red alga -->
+  <symbol id="redalga" viewBox="0 0 300 220">
+    <g fill="none" stroke="#fb7185" stroke-linecap="round">
+      <path d="M150,214 C148,160 154,100 150,24" stroke-width="5"/>
+      <g stroke-width="3.6">
+        <path d="M149,190 C120,184 96,166 84,140"/><path d="M150,190 C180,184 204,166 216,140"/>
+        <path d="M150,150 C124,142 104,124 96,98"/><path d="M151,150 C178,142 198,124 206,98"/>
+        <path d="M150,110 C130,102 116,88 112,64"/><path d="M151,110 C170,102 184,88 188,64"/>
+        <path d="M150,70 C138,64 130,54 128,40"/><path d="M150,70 C162,64 170,54 172,40"/>
+      </g>
+      <g stroke-width="2.4" stroke="#fda4af">
+        <path d="M104,168 C94,166 86,160 80,150"/><path d="M196,168 C206,166 214,160 220,150"/>
+        <path d="M112,132 C102,128 96,120 94,110"/><path d="M188,132 C198,128 204,120 206,110"/>
+        <path d="M130,92 C122,90 116,84 114,76"/><path d="M170,92 C178,90 184,84 186,76"/>
+        <path d="M92,150 C88,142 90,134 94,128"/><path d="M208,150 C212,142 210,134 206,128"/>
+      </g>
+    </g>
+  </symbol>
+
+  <!-- Plasmodial slime mold -->
+  <symbol id="slime" viewBox="0 0 300 220">
+    <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <g stroke="#fde047" stroke-opacity=".22" stroke-width="22">
+        <path d="M60,170 C90,140 110,150 140,120 C160,100 190,110 220,80"/><path d="M140,120 C130,90 150,60 140,36"/><path d="M140,120 C170,140 200,150 240,150"/><path d="M110,150 C100,180 80,196 60,200"/><path d="M220,80 C240,60 260,60 276,44"/><path d="M220,80 C250,90 266,110 280,120"/><path d="M140,120 C110,100 90,90 60,80"/>
+      </g>
+      <g stroke="#facc15" stroke-width="10">
+        <path d="M60,170 C90,140 110,150 140,120 C160,100 190,110 220,80"/><path d="M140,120 C130,90 150,60 140,36"/><path d="M140,120 C170,140 200,150 240,150"/><path d="M110,150 C100,180 80,196 60,200"/><path d="M220,80 C240,60 260,60 276,44"/><path d="M220,80 C250,90 266,110 280,120"/><path d="M140,120 C110,100 90,90 60,80"/>
+      </g>
+    </g>
+    <g fill="#fde047"><circle cx="140" cy="36" r="9"/><circle cx="276" cy="44" r="8"/><circle cx="280" cy="120" r="8"/><circle cx="240" cy="150" r="9"/><circle cx="60" cy="200" r="8"/><circle cx="60" cy="80" r="9"/></g>
+  </symbol>
+
+  <!-- Water mold -->
+  <symbol id="watermold" viewBox="0 0 300 220">
+    <g fill="none" stroke="#e2e8f0" stroke-width="5" stroke-linecap="round" opacity=".9">
+      <path d="M30,180 C80,170 120,150 170,140 C210,132 240,120 266,100"/><path d="M100,160 C110,130 130,112 150,100"/><path d="M170,140 C180,170 210,186 240,184"/><path d="M214,126 C220,100 232,80 248,62"/><path d="M60,176 C64,196 78,206 96,208"/>
+    </g>
+    <g fill="#bae6fd" fill-opacity=".55" stroke="#e2e8f0" stroke-width="2">
+      <ellipse cx="154" cy="96" rx="9" ry="16" transform="rotate(35 154 96)"/><ellipse cx="246" cy="184" rx="16" ry="9"/><ellipse cx="252" cy="58" rx="9" ry="16" transform="rotate(35 252 58)"/><ellipse cx="270" cy="96" rx="9" ry="16" transform="rotate(60 270 96)"/>
+    </g>
+    <g fill="#67e8f9"><circle cx="280" cy="68" r="4"/><circle cx="288" cy="86" r="4"/><circle cx="266" cy="40" r="4"/><circle cx="178" cy="70" r="4"/><circle cx="164" cy="56" r="4"/></g>
+  </symbol>
+
+  <!-- Red blood cell with Plasmodium ring stage -->
+  <symbol id="rbc" viewBox="0 0 300 220">
+    <circle cx="150" cy="110" r="84" fill="#be123c" fill-opacity=".55" stroke="#fda4af" stroke-width="2.5"/>
+    <circle cx="150" cy="110" r="48" fill="#881337" fill-opacity=".4"/>
+    <circle cx="172" cy="96" r="22" fill="none" stroke="#fde68a" stroke-width="7"/>
+    <circle cx="190" cy="84" r="8" fill="#a78bfa" stroke="#ede9fe" stroke-width="1.5"/>
+  </symbol>
+</svg>
+
+<canvas id="bg" aria-hidden="true"></canvas>
+
+<div id="stage">
+
+  <!-- ================= 1 · COVER ================= -->
+  <section class="slide cover">
+    <div class="cover-text">
+      <div class="eyebrow rv">Kingdom of Living Things</div>
+      <h1 class="rv" style="--d:.08s">Kingdom<br><span>Protista</span></h1>
+      <p class="lead rv" style="--d:.18s">อาณาจักรโพรทิสต์ — โลกจุลภาคที่ไม่ใช่พืช ไม่ใช่สัตว์ และไม่ใช่ฟังไจ</p>
+      <div class="credits rv" style="--d:.28s">
+        <div class="cr-col">
+          <div class="cr-h">จัดทำโดย</div>
+          <ol>
+            <li>นายวิธิต จงโปร่งกลาง <span>เลขที่ 2</span></li>
+            <li>นายก้องดุษฎี เลี่ยมรัตน์ <span>เลขที่ 3</span></li>
+            <li>นางสาวณัฐณิชา แนบกลาง <span>เลขที่ 4</span></li>
+            <li>นางสาวสุปราณี สื่อกลาง <span>เลขที่ 5</span></li>
+            <li>นางสาวปุญยาพร ตาโพธิ์ <span>เลขที่ 6</span></li>
+          </ol>
+          <div class="cr-class">ชั้นมัธยมศึกษาปีที่ 6/1</div>
+        </div>
+        <div class="cr-col">
+          <div class="cr-h">เสนอ</div>
+          <p>คุณครูดุสิต ทองสุขนอก</p>
+          <p class="cr-sub">รายวิชาชีววิทยาเพิ่มเติม 6</p>
+        </div>
+      </div>
+    </div>
+    <div class="cover-art" aria-hidden="true">
+      <svg viewBox="0 0 300 220" style="left:200px;top:40px;width:400px;--r:6deg;--t:8s"><use href="#euglena" width="300" height="220"/></svg>
+      <svg viewBox="0 0 300 220" style="left:60px;top:230px;width:330px;--r:-8deg;--t:9s"><use href="#amoeba" width="300" height="220"/></svg>
+      <svg viewBox="0 0 300 220" style="left:330px;top:250px;width:300px;--r:12deg;--t:7s"><use href="#diatom" width="300" height="220"/></svg>
+      <svg viewBox="0 0 300 220" style="left:110px;top:470px;width:360px;--r:-4deg;--t:10s"><use href="#paramecium" width="300" height="220"/></svg>
+      <svg viewBox="0 0 300 220" style="left:430px;top:500px;width:200px;--r:-10deg;--t:6s"><use href="#dino" width="300" height="220"/></svg>
+    </div>
+    <div class="notes">
+      <h4>Slide 1 · เปิดเรื่อง (~20 วิ)</h4>
+      <p>สวัสดีครับ/ค่ะ วันนี้จะนำเสนอเรื่อง อาณาจักรโพรทิสต์ (Kingdom Protista) ซึ่งเป็นกลุ่มสิ่งมีชีวิตที่หลากหลายที่สุดกลุ่มหนึ่ง ทั้งที่เราแทบมองไม่เห็นด้วยตาเปล่า ลองนึกภาพหยดน้ำจากบ่อหนึ่งหยด ข้างในอาจมีสิ่งมีชีวิตเหล่านี้อยู่เป็นร้อยชนิด</p>
+    </div>
+  </section>
+
+  <!-- ================= 2 · DEFINITION ================= -->
+  <section class="slide">
+    <div class="eyebrow rv">01 · Definition</div>
+    <h2 class="rv" style="--d:.05s">โพรทิสต์ (Protists) คืออะไร</h2>
+    <div class="s2">
+      <div class="col">
+        <div class="card def rv" style="--d:.12s">
+          <p class="big">สิ่งมีชีวิตกลุ่ม <b>ยูคาริโอต (Eukaryote)</b> ที่ <u>ไม่จัดเป็น</u> พืช สัตว์ หรือฟังไจ</p>
+          <div class="pills"><span class="pill">Animalia</span><span class="pill">Plantae</span><span class="pill">Fungi</span><span class="pill hl">Protista</span></div>
+          <p class="muted small">ทั้งสี่อาณาจักรอยู่ใน Domain Eukarya</p>
+        </div>
+        <div class="card callout rv" style="--d:.2s">
+          <h3>Polyphyletic group</h3>
+          <p>โพรทิสต์ไม่ได้สืบเชื้อสายมาจากบรรพบุรุษร่วมกลุ่มเดียว จึงเป็นการจัดกลุ่มเพื่อความสะดวกในการศึกษา ปัจจุบันนักวิทยาศาสตร์แบ่งเป็นหลาย Supergroup</p>
+        </div>
+      </div>
+      <div class="feat-grid">
+        <div class="card feat rv" style="--d:.16s"><h3>Eukaryotic cell</h3><p>มีนิวเคลียสและออร์แกเนลล์ที่มีเยื่อหุ้ม เช่น ไมโทคอนเดรีย</p></div>
+        <div class="card feat rv" style="--d:.22s"><h3>Mostly unicellular</h3><p>ส่วนใหญ่เป็นเซลล์เดียว บางกลุ่มเป็นโคโลนีหรือหลายเซลล์ที่ยังไม่มีเนื้อเยื่อที่แท้จริง</p></div>
+        <div class="card feat rv" style="--d:.28s"><h3>Moist habitat</h3><p>อาศัยในน้ำจืด น้ำเค็ม ดินชื้น หรือภายในร่างกายสิ่งมีชีวิตอื่น</p></div>
+        <div class="card feat rv" style="--d:.34s"><h3>Diverse nutrition</h3><p>มีทั้ง Autotroph, Heterotroph และ Mixotroph (ทำได้ทั้งสองแบบ)</p></div>
+      </div>
+    </div>
+    <div class="notes">
+      <h4>Slide 2 · นิยาม (~45 วิ)</h4>
+      <p>โพรทิสต์คือสิ่งมีชีวิตที่เป็นยูคาริโอต คือมีนิวเคลียสที่มีเยื่อหุ้ม แต่ไม่ใช่พืช สัตว์ หรือฟังไจ ส่วนใหญ่เป็นเซลล์เดียว อาศัยในที่ชื้น และมีวิธีดำรงชีวิตหลากหลาย ทั้งสังเคราะห์ด้วยแสงเอง กินอาหารสำเร็จรูป หรือทำได้ทั้งสองแบบ จุดที่ควรรู้คือโพรทิสต์เป็นกลุ่ม Polyphyletic ไม่ได้มีบรรพบุรุษร่วมกลุ่มเดียว จึงเป็นกลุ่มที่จัดไว้เพื่อความสะดวกในการเรียน</p>
+    </div>
+  </section>
+
+  <!-- ================= 3 · THREE GROUPS ================= -->
+  <section class="slide">
+    <div class="eyebrow rv">Overview</div>
+    <h2 class="rv" style="--d:.05s">3 กลุ่มหลักของโพรทิสต์ <small>จัดตามลักษณะการดำรงชีวิต</small></h2>
+    <div class="three">
+      <div class="card group rv" style="--d:.12s">
+        <svg viewBox="0 0 300 220"><use href="#paramecium" width="300" height="220"/></svg>
+        <h3>Protozoa</h3><div class="th">โพรโทซัว · โพรทิสต์คล้ายสัตว์</div>
+        <span class="chip">Heterotroph</span>
+        <p>กินอาหารสำเร็จรูป เคลื่อนที่ได้ ไม่มีผนังเซลล์</p>
+      </div>
+      <div class="card group rv" style="--d:.22s">
+        <svg viewBox="0 0 300 220"><use href="#slime" width="300" height="220"/></svg>
+        <h3>Fungus-like protists</h3><div class="th">โพรทิสต์คล้ายรา</div>
+        <span class="chip gold">Heterotroph</span>
+        <p>ย่อยสลายสารอินทรีย์ ดูดซึมหรือกลืนกินอาหาร พบในที่ชื้น</p>
+      </div>
+      <div class="card group rv" style="--d:.32s">
+        <svg viewBox="0 0 300 220"><use href="#volvox" width="300" height="220"/></svg>
+        <h3>Algae</h3><div class="th">สาหร่าย · โพรทิสต์คล้ายพืช</div>
+        <span class="chip">Autotroph</span>
+        <p>สังเคราะห์ด้วยแสง มีคลอโรฟิลล์ เป็นผู้ผลิตในแหล่งน้ำ</p>
+      </div>
+    </div>
+    <p class="note rv" style="--d:.4s">หมายเหตุ: ตำราบางเล่มจัดกลุ่มตามสายวิวัฒนาการ (Supergroup) ซึ่งต่างจากการจัดกลุ่มตามลักษณะเพื่อการเรียนรู้ในครั้งนี้</p>
+    <div class="notes">
+      <h4>Slide 3 · ภาพรวม (~30 วิ)</h4>
+      <p>เพื่อให้เรียนง่าย เราจัดโพรทิสต์เป็น 3 กลุ่มตามวิธีการดำรงชีวิต กลุ่มแรกคือโพรโทซัว คล้ายสัตว์ กินอาหารสำเร็จรูป กลุ่มที่สองคือโพรทิสต์คล้ายรา ย่อยสลายสารอินทรีย์ และกลุ่มที่สามคือสาหร่าย คล้ายพืช สังเคราะห์ด้วยแสงได้ เดี๋ยวเราไปดูทีละกลุ่มครับ/ค่ะ</p>
+    </div>
+  </section>
+
+  <!-- ================= 4 · PROTOZOA ================= -->
+  <section class="slide">
+    <div class="eyebrow rv">02 · Protozoa</div>
+    <h2 class="rv" style="--d:.05s">โพรโทซัว (Protozoa)</h2>
+    <p class="intro rv" style="--d:.1s">เซลล์เดียว ไม่มีผนังเซลล์ ไม่มีคลอโรพลาสต์ กินอาหารแบบ Heterotroph มีทั้งที่อยู่อิสระและเป็นปรสิต (Parasite) แบ่งกลุ่มตามโครงสร้างที่ใช้เคลื่อนที่</p>
+    <div class="four">
+      <div class="card type rv" style="--d:.14s">
+        <svg viewBox="0 0 300 220"><use href="#amoeba" width="300" height="220"/></svg>
+        <h3>Amoeboid</h3><div class="mv">เท้าเทียม · Pseudopodia</div>
+        <p>ไซโทพลาซึมยื่นออกเป็นเท้าเทียมเพื่อเคลื่อนที่และจับอาหาร</p>
+        <div class="ex">Amoeba, Entamoeba</div>
+      </div>
+      <div class="card type rv" style="--d:.22s">
+        <svg viewBox="0 0 300 220"><use href="#paramecium" width="300" height="220"/></svg>
+        <h3>Ciliates</h3><div class="mv">ซิเลีย · Cilia</div>
+        <p>มีซิเลียจำนวนมากคลุมผิวเซลล์ พัดโบกประสานกัน</p>
+        <div class="ex">Paramecium</div>
+      </div>
+      <div class="card type rv" style="--d:.3s">
+        <svg viewBox="0 0 300 220"><use href="#trypano" width="300" height="220"/></svg>
+        <h3>Flagellates</h3><div class="mv">แฟลเจลลัม · Flagellum</div>
+        <p>เคลื่อนที่ด้วยแฟลเจลลัมตั้งแต่ 1 เส้นขึ้นไป หลายชนิดเป็นปรสิต</p>
+        <div class="ex">Trypanosoma, Giardia</div>
+      </div>
+      <div class="card type rv" style="--d:.38s">
+        <svg viewBox="0 0 300 220"><use href="#rbc" width="300" height="220"/></svg>
+        <h3>Sporozoans</h3><div class="mv">ไม่มีโครงสร้างเคลื่อนที่</div>
+        <p>เป็นปรสิตทั้งหมด สร้างสปอร์ในวงจรชีวิต</p>
+        <div class="ex">Plasmodium</div>
+      </div>
+    </div>
+    <div class="notes">
+      <h4>Slide 4 · โพรโทซัวภาพรวม (~40 วิ)</h4>
+      <p>โพรโทซัวมีเซลล์เดียว ไม่มีผนังเซลล์ และไม่มีคลอโรพลาสต์ จึงกินอาหารสำเร็จรูป เราแบ่งย่อยตามโครงสร้างที่ใช้เคลื่อนที่ คือ กลุ่มเท้าเทียม เช่น อะมีบา กลุ่มซิเลีย เช่น พารามีเซียม กลุ่มแฟลเจลลัม เช่น ทริปาโนโซมา และกลุ่มสปอโรซัว ซึ่งไม่มีโครงสร้างเคลื่อนที่และเป็นปรสิตทั้งหมด เช่น พลาสโมเดียม (ชื่อกลุ่มอาจต่างกันเล็กน้อยตามตำราแต่ละเล่ม)</p>
+    </div>
+  </section>
+
+  <!-- ================= 5 · PROTOZOA EXAMPLES ================= -->
+  <section class="slide">
+    <div class="eyebrow rv">02 · Protozoa · Examples</div>
+    <h2 class="rv" style="--d:.05s">ทำความรู้จักโพรโทซัว <small>กด 1–4 หรือคลิกเพื่อสลับ</small></h2>
+    <div class="viewer rv" style="--d:.1s">
+      <div class="tabs">
+        <button class="tab active" data-pane="p-amoeba"><span class="dot-c" style="--c:#5eead4"></span>Amoeba</button>
+        <button class="tab" data-pane="p-para"><span class="dot-c" style="--c:#93c5fd"></span>Paramecium</button>
+        <button class="tab" data-pane="p-tryp"><span class="dot-c" style="--c:#f9a8d4"></span>Trypanosoma</button>
+        <button class="tab" data-pane="p-giar"><span class="dot-c" style="--c:#fcd34d"></span>Giardia</button>
+      </div>
+
+      <div class="pane active" id="p-amoeba">
+        <div class="card pane-art"><svg viewBox="-150 -6 600 232" role="img" aria-label="Amoeba">
+          <use href="#amoeba" width="300" height="220"/>
+          <g class="lbl"><line x1="-6" y1="66" x2="42" y2="78"/><circle cx="42" cy="78" r="2.6"/><text x="-12" y="71" text-anchor="end">Pseudopodia</text></g>
+          <g class="lbl"><line x1="-6" y1="150" x2="98" y2="140"/><circle cx="98" cy="140" r="2.6"/><text x="-12" y="155" text-anchor="end">Food vacuole</text></g>
+          <g class="lbl"><line x1="306" y1="48" x2="203" y2="80"/><circle cx="203" cy="80" r="2.6"/><text x="312" y="53">Contractile vacuole</text></g>
+          <g class="lbl"><line x1="306" y1="120" x2="170" y2="112"/><circle cx="170" cy="112" r="2.6"/><text x="312" y="125">Nucleus</text></g>
+          <g class="lbl"><line x1="306" y1="178" x2="251" y2="134"/><circle cx="251" cy="134" r="2.6"/><text x="312" y="183">Plasma membrane</text></g>
+        </svg></div>
+        <div class="card pane-info">
+          <h3>Amoeba</h3><div class="sci">Amoeba proteus · อะมีบา</div><span class="chip">Amoeboid</span><span class="chip gold">น้ำจืด</span>
+          <dl class="facts">
+            <dt>เคลื่อนที่</dt><dd>เท้าเทียม (Pseudopodia) ไซโทพลาซึมไหลยื่นออกไป</dd>
+            <dt>กินอาหาร</dt><dd>Phagocytosis — เท้าเทียมโอบล้อมอาหารเกิด Food vacuole</dd>
+            <dt>รักษาสมดุลน้ำ</dt><dd>Contractile vacuole ขับน้ำส่วนเกินออก</dd>
+            <dt>สืบพันธุ์</dt><dd>Binary fission</dd>
+          </dl>
+        </div>
+      </div>
+
+      <div class="pane" id="p-para">
+        <div class="card pane-art"><svg viewBox="-150 -6 600 232" role="img" aria-label="Paramecium">
+          <use href="#paramecium" width="300" height="220"/>
+          <g class="lbl"><line x1="-6" y1="58" x2="80" y2="95"/><circle cx="80" cy="95" r="2.6"/><text x="-12" y="63" text-anchor="end">Contractile vacuole</text></g>
+          <g class="lbl"><line x1="-6" y1="118" x2="48" y2="120"/><circle cx="48" cy="120" r="2.6"/><text x="-12" y="123" text-anchor="end">Cilia</text></g>
+          <g class="lbl"><line x1="-6" y1="176" x2="90" y2="143"/><circle cx="90" cy="143" r="2.6"/><text x="-12" y="181" text-anchor="end">Oral groove</text></g>
+          <g class="lbl"><line x1="306" y1="58" x2="190" y2="102"/><circle cx="190" cy="102" r="2.6"/><text x="312" y="63">Macronucleus</text></g>
+          <g class="lbl"><line x1="306" y1="96" x2="210" y2="94"/><circle cx="210" cy="94" r="2.6"/><text x="312" y="101">Micronucleus</text></g>
+          <g class="lbl"><line x1="306" y1="174" x2="212" y2="142"/><circle cx="212" cy="142" r="2.6"/><text x="312" y="179">Food vacuole</text></g>
+        </svg></div>
+        <div class="card pane-info">
+          <h3>Paramecium</h3><div class="sci">Paramecium caudatum · พารามีเซียม</div><span class="chip">Ciliate</span><span class="chip gold">น้ำจืด</span>
+          <dl class="facts">
+            <dt>เคลื่อนที่</dt><dd>ซิเลียพัดโบกประสานกัน ว่ายน้ำได้เร็ว</dd>
+            <dt>กินอาหาร</dt><dd>Oral groove กวาดแบคทีเรียเข้าสู่ปาก → Food vacuole</dd>
+            <dt>นิวเคลียส</dt><dd>2 ชนิด: Macronucleus คุมกิจกรรมทั่วไป · Micronucleus เกี่ยวกับการสืบพันธุ์</dd>
+            <dt>สืบพันธุ์</dt><dd>Binary fission และ Conjugation</dd>
+          </dl>
+        </div>
+      </div>
+
+      <div class="pane" id="p-tryp">
+        <div class="card pane-art"><svg viewBox="-150 -6 600 232" role="img" aria-label="Trypanosoma">
+          <use href="#trypano" width="300" height="220"/>
+          <g class="lbl"><line x1="150" y1="13" x2="140" y2="74"/><circle cx="140" cy="74" r="2.6"/><text x="150" y="8" text-anchor="middle">Undulating membrane</text></g>
+          <g class="lbl"><line x1="-6" y1="46" x2="138" y2="106"/><circle cx="138" cy="106" r="2.6"/><text x="-12" y="51" text-anchor="end">Nucleus</text></g>
+          <g class="lbl"><line x1="-6" y1="174" x2="76" y2="143"/><circle cx="76" cy="143" r="2.6"/><text x="-12" y="179" text-anchor="end">Kinetoplast</text></g>
+          <g class="lbl"><line x1="306" y1="36" x2="288" y2="47"/><circle cx="288" cy="47" r="2.6"/><text x="312" y="41">Flagellum</text></g>
+          <g class="lbl"><line x1="306" y1="178" x2="256" y2="176"/><circle cx="256" cy="176" r="2.6"/><text x="312" y="183">Red blood cell</text></g>
+        </svg></div>
+        <div class="card pane-info">
+          <h3>Trypanosoma</h3><div class="sci">Trypanosoma brucei · ทริปาโนโซมา</div><span class="chip">Flagellate</span><span class="chip rose">ปรสิตในเลือด</span>
+          <dl class="facts">
+            <dt>เคลื่อนที่</dt><dd>แฟลเจลลัม + Undulating membrane</dd>
+            <dt>ก่อโรค</dt><dd>โรคเหงาหลับ (African sleeping sickness)</dd>
+            <dt>พาหะ</dt><dd>แมลงวันเซ็ทซี (Tsetse fly) พบในทวีปแอฟริกา</dd>
+            <dt>อาศัยใน</dt><dd>กระแสเลือดและระบบประสาทของคน</dd>
+          </dl>
+        </div>
+      </div>
+
+      <div class="pane" id="p-giar">
+        <div class="card pane-art"><svg viewBox="-150 -6 600 232" role="img" aria-label="Giardia">
+          <use href="#giardia" width="300" height="220"/>
+          <g class="lbl"><line x1="-6" y1="56" x2="98" y2="68"/><circle cx="98" cy="68" r="2.6"/><text x="-12" y="61" text-anchor="end">Sucking disc</text></g>
+          <g class="lbl"><line x1="-6" y1="150" x2="66" y2="150"/><circle cx="66" cy="150" r="2.6"/><text x="-12" y="155" text-anchor="end">Flagella</text></g>
+          <g class="lbl"><line x1="306" y1="58" x2="184" y2="68"/><circle cx="184" cy="68" r="2.6"/><text x="312" y="63">2 Nuclei</text></g>
+          <g class="lbl"><line x1="306" y1="150" x2="234" y2="150"/><circle cx="234" cy="150" r="2.6"/><text x="312" y="155">Flagella (4 คู่)</text></g>
+        </svg></div>
+        <div class="card pane-info">
+          <h3>Giardia</h3><div class="sci">Giardia lamblia · จาร์เดีย</div><span class="chip">Flagellate</span><span class="chip rose">ปรสิตลำไส้เล็ก</span>
+          <dl class="facts">
+            <dt>โครงสร้าง</dt><dd>2 นิวเคลียส, แฟลเจลลัม 4 คู่, Sucking disc ยึดผนังลำไส้</dd>
+            <dt>ก่อโรค</dt><dd>Giardiasis — ท้องเสีย ถ่ายเหลว</dd>
+            <dt>การติดต่อ</dt><dd>ซีสต์ (Cyst) ปนเปื้อนในน้ำหรืออาหารที่ไม่สะอาด</dd>
+            <dt>ป้องกัน</dt><dd>กินอาหารปรุงสุก ดื่มน้ำสะอาด ล้างมือ</dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+    <div class="notes">
+      <h4>Slide 5 · ตัวอย่างโพรโทซัว (~60 วิ)</h4>
+      <p>อะมีบาใช้เท้าเทียมเคลื่อนที่และโอบจับอาหาร พารามีเซียมใช้ซิเลีย มีนิวเคลียส 2 ชนิด ทริปาโนโซมาอยู่ในกระแสเลือด ก่อโรคเหงาหลับ มีแมลงวันเซ็ทซีเป็นพาหะ ส่วนจาร์เดียเป็นปรสิตในลำไส้เล็กทำให้ท้องเสียจากการกินน้ำหรืออาหารที่ปนเปื้อนซีสต์ ถ้าเวลาน้อยให้เน้นอะมีบากับพารามีเซียมเป็นหลัก</p>
+    </div>
+  </section>
+
+  <!-- ================= 6 · PLASMODIUM ================= -->
+  <section class="slide">
+    <div class="eyebrow rv">02 · Protozoa · Sporozoans</div>
+    <h2 class="rv" style="--d:.05s">Plasmodium และโรคมาลาเรีย <small>กด 1–5 เพื่อดูทีละขั้น</small></h2>
+    <div class="s6 viewer rv" style="--d:.1s">
+      <div class="steps">
+        <button class="step active" data-pane="m1"><span class="n">1</span>Sporozoite เข้าสู่คน</button>
+        <button class="step" data-pane="m2"><span class="n">2</span>ระยะในตับ (Liver stage)</button>
+        <button class="step" data-pane="m3"><span class="n">3</span>ระยะในเม็ดเลือดแดง</button>
+        <button class="step" data-pane="m4"><span class="n">4</span>Gametocyte</button>
+        <button class="step" data-pane="m5"><span class="n">5</span>วงจรในตัวยุง</button>
+      </div>
+      <div>
+        <div class="pane active" id="m1"><div class="card step-card"><svg viewBox="0 0 300 220"><use href="#rbc" width="300" height="220"/></svg><div><h3>Sporozoite เข้าสู่คน</h3><p>ยุงก้นปล่อง (<i class="sci">Anopheles</i>) เพศเมียกัดคน ปล่อยสปอโรซอยต์ (Sporozoite) จากต่อมน้ำลายเข้าสู่กระแสเลือด</p></div></div></div>
+        <div class="pane" id="m2"><div class="card step-card"><svg viewBox="0 0 300 220"><use href="#rbc" width="300" height="220"/></svg><div><h3>ระยะในตับ (Liver stage)</h3><p>สปอโรซอยต์เข้าสู่เซลล์ตับ เพิ่มจำนวนเป็นเมอโรซอยต์ (Merozoite) จำนวนมาก ช่วงนี้ยังไม่มีอาการ</p></div></div></div>
+        <div class="pane" id="m3"><div class="card step-card"><svg viewBox="0 0 300 220"><use href="#rbc" width="300" height="220"/></svg><div><h3>ระยะในเม็ดเลือดแดง</h3><p>เมอโรซอยต์เข้าเม็ดเลือดแดงและเพิ่มจำนวน เม็ดเลือดแตกปล่อยเชื้อรุ่นใหม่ ทำให้มีไข้สูง หนาวสั่นเป็นช่วง ๆ และโลหิตจาง</p></div></div></div>
+        <div class="pane" id="m4"><div class="card step-card"><svg viewBox="0 0 300 220"><use href="#rbc" width="300" height="220"/></svg><div><h3>Gametocyte</h3><p>เชื้อบางส่วนในเม็ดเลือดแดงเปลี่ยนเป็นเซลล์สืบพันธุ์ (Gametocyte) รอให้ยุงมาดูดเลือด</p></div></div></div>
+        <div class="pane" id="m5"><div class="card step-card"><svg viewBox="0 0 300 220"><use href="#rbc" width="300" height="220"/></svg><div><h3>วงจรในตัวยุง</h3><p>ยุงดูดเลือดที่มี Gametocyte เกิดปฏิสนธิในกระเพาะยุง พัฒนาเป็น Sporozoite ไปยังต่อมน้ำลาย พร้อมแพร่สู่คนต่อไป</p></div></div></div>
+        <div class="card callout"><h3>ป้องกัน</h3><p>กำจัดแหล่งเพาะพันธุ์ยุง นอนในมุ้ง ทายากันยุง และไปพบแพทย์ทันทีเมื่อมีไข้หลังเข้าพื้นที่เสี่ยง เช่น ป่าเขา</p></div>
+      </div>
+    </div>
+    <div class="notes">
+      <h4>Slide 6 · มาลาเรีย (~50 วิ)</h4>
+      <p>พลาสโมเดียมเป็นโพรโทซัวกลุ่มสปอโรซัว ก่อโรคมาลาเรีย วงจรเริ่มจากยุงก้นปล่องเพศเมียกัดคน ปล่อยสปอโรซอยต์เข้าเลือด เชื้อไปเพิ่มจำนวนที่ตับ แล้วเข้าเม็ดเลือดแดง เม็ดเลือดแตกเป็นช่วง ๆ ทำให้ไข้ขึ้นและหนาวสั่น บางส่วนเปลี่ยนเป็นเซลล์สืบพันธุ์ เมื่อยุงตัวใหม่มากัดก็รับเชื้อไปและวนซ้ำ</p>
+    </div>
+  </section>
+
+  <!-- ================= 7 · FUNGUS-LIKE ================= -->
+  <section class="slide">
+    <div class="eyebrow rv">03 · Fungus-like protists</div>
+    <h2 class="rv" style="--d:.05s">โพรทิสต์คล้ายรา <small>Fungus-like Protists</small></h2>
+    <div class="two">
+      <div class="card rv" style="--d:.12s">
+        <svg viewBox="0 0 300 220" aria-label="Slime mold"><use href="#slime" width="300" height="220"/></svg>
+        <h3>Slime molds</h3><div class="th">ราเมือก</div>
+        <ul>
+          <li><b>Plasmodial</b> (<i class="sci">Physarum</i>): มวลไซโทพลาซึมที่มีหลายนิวเคลียส เคลื่อนที่แบบอะมีบา กินแบคทีเรียและเศษซาก</li>
+          <li><b>Cellular</b> (<i class="sci">Dictyostelium</i>): อะมีบาเดี่ยว เมื่ออาหารขาดจะรวมกลุ่มสร้างโครงสร้างสร้างสปอร์</li>
+        </ul>
+      </div>
+      <div class="card rv" style="--d:.22s">
+        <svg viewBox="0 0 300 220" aria-label="Water mold"><use href="#watermold" width="300" height="220"/></svg>
+        <h3>Water molds</h3><div class="th">ราน้ำ · Oomycetes</div>
+        <ul>
+          <li>เส้นใยไม่มีผนังกั้น ผนังเซลล์เป็น <b>เซลลูโลส</b> สร้าง <b>ซูสปอร์</b> ที่มีแฟลเจลลัม</li>
+          <li><i class="sci">Saprolegnia</i>: ราสำลีที่เกาะตัวปลา · <i class="sci">Phytophthora infestans</i>: โรคใบไหม้มันฝรั่ง (ทุพภิกขภัยในไอร์แลนด์ ค.ศ. 1840s)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="strip rv" style="--d:.34s"><b>ต่างจากรา (Fungi) แท้อย่างไร?</b> ผนังเซลล์ไม่ใช่ไคติน (ราน้ำเป็นเซลลูโลส) · มีระยะที่เคลื่อนที่ได้ · ราเมือกกินอาหารโดยการล้อมกลืนเหมือนอะมีบา</div>
+    <div class="notes">
+      <h4>Slide 7 · โพรทิสต์คล้ายรา (~50 วิ)</h4>
+      <p>โพรทิสต์คล้ายราเป็นเฮเทอโรโทรฟ ย่อยสลายสารอินทรีย์ในที่ชื้น มี 2 กลุ่มหลัก ราเมือก ได้แก่แบบพลาสโมเดียมที่เป็นมวลไซโทพลาซึมหลายนิวเคลียส และแบบเซลลูลาร์ที่เป็นอะมีบาเดี่ยวแล้วรวมตัวกันตอนขาดอาหาร อีกกลุ่มคือราน้ำ มีผนังเซลล์เป็นเซลลูโลส และสร้างซูสปอร์ที่มีแฟลเจลลัม ตัวอย่างสำคัญคือ Phytophthora ที่ทำให้มันฝรั่งเน่าจนเกิดความอดอยากในไอร์แลนด์ ที่สำคัญคือแม้หน้าตาคล้ายรา แต่ไม่ใช่ฟังไจแท้</p>
+    </div>
+  </section>
+
+  <!-- ================= 8 · ALGAE OVERVIEW ================= -->
+  <section class="slide">
+    <div class="eyebrow rv">04 · Algae</div>
+    <h2 class="rv" style="--d:.05s">สาหร่าย (Algae) <small>โพรทิสต์ที่สังเคราะห์ด้วยแสง</small></h2>
+    <div class="s8">
+      <div class="list">
+        <div class="card item rv" style="--d:.1s"><h3>Photosynthetic</h3><p>มีคลอโรฟิลล์ a และรงควัตถุอื่น จึงเป็น Autotroph</p></div>
+        <div class="card item rv" style="--d:.16s"><h3>เซลล์เดียว → หลายเซลล์</h3><p>ตั้งแต่แพลงก์ตอนพืชขนาดจิ๋ว จนถึงสาหร่ายทะเลยาวหลายสิบเมตร (Kelp)</p></div>
+        <div class="card item rv" style="--d:.22s"><h3>ไม่มีอวัยวะจริง</h3><p>ไม่มีราก ลำต้น ใบที่แท้จริง เรียกลำตัวว่า แทลลัส (Thallus)</p></div>
+        <div class="card item rv" style="--d:.28s"><h3>แหล่งที่อยู่</h3><p>น้ำจืด น้ำเค็ม และดินชื้น</p></div>
+        <div class="card item rv" style="--d:.34s"><h3>การสืบพันธุ์</h3><p>แบบไม่อาศัยเพศ (แบ่งเซลล์ แตกหัก สปอร์) และแบบอาศัยเพศ</p></div>
+      </div>
+      <div class="divs">
+        <h3 class="rv" style="--d:.12s">จัดกลุ่มตามรงควัตถุ อาหารสะสม ผนังเซลล์</h3>
+        <div class="div-chip rv" style="--c:#4ade80;--d:.18s"><b>Euglenophyta</b><span>ยูกลีนา</span></div>
+        <div class="div-chip rv" style="--c:#fcd34d;--d:.22s"><b>Chrysophyta</b><span>ไดอะตอม</span></div>
+        <div class="div-chip rv" style="--c:#fb923c;--d:.26s"><b>Pyrrophyta</b><span>ไดโนแฟลเจลเลต</span></div>
+        <div class="div-chip rv" style="--c:#22c55e;--d:.3s"><b>Chlorophyta</b><span>สาหร่ายสีเขียว</span></div>
+        <div class="div-chip rv" style="--c:#b45309;--d:.34s"><b>Phaeophyta</b><span>สาหร่ายสีน้ำตาล</span></div>
+        <div class="div-chip rv" style="--c:#f43f5e;--d:.38s"><b>Rhodophyta</b><span>สาหร่ายสีแดง</span></div>
+      </div>
+    </div>
+    <div class="notes">
+      <h4>Slide 8 · สาหร่ายภาพรวม (~40 วิ)</h4>
+      <p>สาหร่ายเป็นโพรทิสต์ที่สังเคราะห์ด้วยแสงได้ มีตั้งแต่เซลล์เดียวไปจนถึงหลายเซลล์ขนาดใหญ่ แต่ยังไม่นับเป็นพืช เพราะไม่มีราก ลำต้น ใบที่แท้จริง เราแบ่งสาหร่ายเป็น 6 กลุ่มตามรงควัตถุ อาหารสะสม และผนังเซลล์ ดังที่เห็นทางขวา</p>
+    </div>
+  </section>
+
+  <!-- ================= 9 · ALGAE EXAMPLES ================= -->
+  <section class="slide">
+    <div class="eyebrow rv">04 · Algae · Divisions</div>
+    <h2 class="rv" style="--d:.05s">สาหร่าย 6 กลุ่ม <small>กด 1–6 หรือคลิกเพื่อสลับ</small></h2>
+    <div class="viewer rv" style="--d:.1s">
+      <div class="tabs">
+        <button class="tab active" data-pane="a-eug"><span class="dot-c" style="--c:#4ade80"></span>Euglenophyta</button>
+        <button class="tab" data-pane="a-chr"><span class="dot-c" style="--c:#fcd34d"></span>Chrysophyta</button>
+        <button class="tab" data-pane="a-pyr"><span class="dot-c" style="--c:#fb923c"></span>Pyrrophyta</button>
+        <button class="tab" data-pane="a-chl"><span class="dot-c" style="--c:#22c55e"></span>Chlorophyta</button>
+        <button class="tab" data-pane="a-pha"><span class="dot-c" style="--c:#b45309"></span>Phaeophyta</button>
+        <button class="tab" data-pane="a-rho"><span class="dot-c" style="--c:#f43f5e"></span>Rhodophyta</button>
+      </div>
+
+      <div class="pane active" id="a-eug">
+        <div class="card pane-art"><svg viewBox="-150 -6 600 232" role="img" aria-label="Euglena">
+          <use href="#euglena" width="300" height="220"/>
+          <g class="lbl"><line x1="96" y1="13" x2="96" y2="97"/><circle cx="96" cy="97" r="2.6"/><text x="96" y="8" text-anchor="middle">Eyespot</text></g>
+          <g class="lbl"><line x1="-6" y1="50" x2="30" y2="78"/><circle cx="30" cy="78" r="2.6"/><text x="-12" y="55" text-anchor="end">Flagellum</text></g>
+          <g class="lbl"><line x1="-6" y1="156" x2="76" y2="124"/><circle cx="76" cy="124" r="2.6"/><text x="-12" y="161" text-anchor="end">Contractile vacuole</text></g>
+          <g class="lbl"><line x1="306" y1="51" x2="152" y2="94"/><circle cx="152" cy="94" r="2.6"/><text x="312" y="56">Chloroplast</text></g>
+          <g class="lbl"><line x1="306" y1="101" x2="206" y2="112"/><circle cx="206" cy="112" r="2.6"/><text x="312" y="106">Nucleus</text></g>
+          <g class="lbl"><line x1="306" y1="171" x2="238" y2="128"/><circle cx="238" cy="128" r="2.6"/><text x="312" y="176">Pellicle</text></g>
+        </svg></div>
+        <div class="card pane-info">
+          <h3>Euglenophyta</h3><div class="sci">Euglena · ยูกลีนา</div><span class="chip">เซลล์เดียว</span><span class="chip gold">น้ำจืด</span>
+          <dl class="facts">
+            <dt>รงควัตถุ</dt><dd>Chlorophyll a, b + Carotenoid</dd>
+            <dt>สะสมอาหาร</dt><dd>Paramylon</dd>
+            <dt>ผนังเซลล์</dt><dd>ไม่มี มี Pellicle ยืดหยุ่นได้</dd>
+            <dt>เด่น</dt><dd>แฟลเจลลัม 1 เส้น + Eyespot รับแสง · เป็น Mixotroph (ไม่มีแสงก็กินอาหารได้)</dd>
+          </dl>
+        </div>
+      </div>
+
+      <div class="pane" id="a-chr">
+        <div class="card pane-art"><svg viewBox="-150 -6 600 232" role="img" aria-label="Diatom">
+          <use href="#diatom" width="300" height="220"/>
+          <g class="lbl"><line x1="306" y1="36" x2="209" y2="51"/><circle cx="209" cy="51" r="2.6"/><text x="312" y="41">Frustule (ผนังซิลิกา)</text></g>
+          <g class="lbl"><line x1="306" y1="106" x2="196" y2="110"/><circle cx="196" cy="110" r="2.6"/><text x="312" y="111">Pores / Striae</text></g>
+          <g class="lbl"><line x1="-6" y1="111" x2="141" y2="110"/><circle cx="141" cy="110" r="2.6"/><text x="-12" y="116" text-anchor="end">Nucleus</text></g>
+        </svg></div>
+        <div class="card pane-info">
+          <h3>Chrysophyta</h3><div class="sci">Diatom · ไดอะตอม (เช่น Coscinodiscus)</div><span class="chip">เซลล์เดียว</span><span class="chip gold">แพลงก์ตอนพืช</span>
+          <dl class="facts">
+            <dt>รงควัตถุ</dt><dd>Chlorophyll a, c + Fucoxanthin</dd>
+            <dt>สะสมอาหาร</dt><dd>น้ำมัน และ Chrysolaminarin</dd>
+            <dt>ผนังเซลล์</dt><dd>ซิลิกา (SiO₂) 2 ฝาซ้อนกัน เรียก Frustule</dd>
+            <dt>ประโยชน์</dt><dd>ซากทับถมเป็น Diatomaceous earth ใช้เป็นตัวกรองและสารขัด</dd>
+          </dl>
+        </div>
+      </div>
+
+      <div class="pane" id="a-pyr">
+        <div class="card pane-art"><svg viewBox="-150 -6 600 232" role="img" aria-label="Dinoflagellate">
+          <use href="#dino" width="300" height="220"/>
+          <g class="lbl"><line x1="-6" y1="58" x2="118" y2="66"/><circle cx="118" cy="66" r="2.6"/><text x="-12" y="63" text-anchor="end">Cellulose plates</text></g>
+          <g class="lbl"><line x1="-6" y1="104" x2="92" y2="106"/><circle cx="92" cy="106" r="2.6"/><text x="-12" y="109" text-anchor="end">Transverse flagellum</text></g>
+          <g class="lbl"><line x1="306" y1="146" x2="166" y2="154"/><circle cx="166" cy="154" r="2.6"/><text x="312" y="151">Nucleus</text></g>
+          <g class="lbl"><line x1="306" y1="201" x2="152" y2="204"/><circle cx="152" cy="204" r="2.6"/><text x="312" y="206">Trailing flagellum</text></g>
+        </svg></div>
+        <div class="card pane-info">
+          <h3>Pyrrophyta</h3><div class="sci">Dinoflagellate · ไดโนแฟลเจลเลต</div><span class="chip">เซลล์เดียว</span><span class="chip rose">Red tide</span>
+          <dl class="facts">
+            <dt>รงควัตถุ</dt><dd>Chlorophyll a, c + Peridinin</dd>
+            <dt>สะสมอาหาร</dt><dd>แป้งและน้ำมัน</dd>
+            <dt>ผนังเซลล์</dt><dd>แผ่นเซลลูโลส (Theca) มีแฟลเจลลัม 2 เส้นในร่อง</dd>
+            <dt>เด่น</dt><dd>บางชนิดเรืองแสงได้ · บางชนิดเพิ่มจำนวนเป็นน้ำทะเลสีแดง (Red tide) สร้างสารพิษสะสมในหอย</dd>
+          </dl>
+        </div>
+      </div>
+
+      <div class="pane" id="a-chl">
+        <div class="card pane-art"><svg viewBox="-150 -6 600 232" role="img" aria-label="Volvox">
+          <use href="#volvox" width="300" height="220"/>
+          <g class="lbl"><line x1="-6" y1="56" x2="98" y2="92"/><circle cx="98" cy="92" r="2.6"/><text x="-12" y="61" text-anchor="end">Daughter colony</text></g>
+          <g class="lbl"><line x1="306" y1="46" x2="226" y2="66"/><circle cx="226" cy="66" r="2.6"/><text x="312" y="51">Cell (แฟลเจลลัม 2 เส้น)</text></g>
+          <g class="lbl"><line x1="306" y1="166" x2="226" y2="154"/><circle cx="226" cy="154" r="2.6"/><text x="312" y="171">Spherical colony</text></g>
+        </svg></div>
+        <div class="card pane-info">
+          <h3>Chlorophyta</h3><div class="sci">Volvox, Chlamydomonas, Spirogyra, Ulva</div><span class="chip">สาหร่ายสีเขียว</span><span class="chip gold">น้ำจืดเป็นส่วนใหญ่</span>
+          <dl class="facts">
+            <dt>รงควัตถุ</dt><dd>Chlorophyll a, b + Carotenoid</dd>
+            <dt>สะสมอาหาร</dt><dd>แป้ง (Starch)</dd>
+            <dt>ผนังเซลล์</dt><dd>เซลลูโลส</dd>
+            <dt>เด่น</dt><dd>มีทั้งเซลล์เดียว โคโลนี และสายยาว · มีลักษณะคล้ายพืชบกมากที่สุด จึงเชื่อว่าเป็นบรรพบุรุษของพืช</dd>
+          </dl>
+        </div>
+      </div>
+
+      <div class="pane" id="a-pha">
+        <div class="card pane-art"><svg viewBox="-150 -6 600 232" role="img" aria-label="Brown alga">
+          <use href="#kelp" width="300" height="220"/>
+          <g class="lbl"><line x1="-6" y1="36" x2="86" y2="52"/><circle cx="86" cy="52" r="2.6"/><text x="-12" y="41" text-anchor="end">Blade</text></g>
+          <g class="lbl"><line x1="-6" y1="186" x2="112" y2="206"/><circle cx="112" cy="206" r="2.6"/><text x="-12" y="191" text-anchor="end">Holdfast</text></g>
+          <g class="lbl"><line x1="306" y1="81" x2="171" y2="98"/><circle cx="171" cy="98" r="2.6"/><text x="312" y="86">Gas bladder</text></g>
+          <g class="lbl"><line x1="306" y1="146" x2="153" y2="150"/><circle cx="153" cy="150" r="2.6"/><text x="312" y="151">Stipe</text></g>
+        </svg></div>
+        <div class="card pane-info">
+          <h3>Phaeophyta</h3><div class="sci">Sargassum, Laminaria (Kelp)</div><span class="chip">หลายเซลล์</span><span class="chip gold">ทะเล</span>
+          <dl class="facts">
+            <dt>รงควัตถุ</dt><dd>Chlorophyll a, c + Fucoxanthin</dd>
+            <dt>สะสมอาหาร</dt><dd>Laminarin และ Mannitol</dd>
+            <dt>ผนังเซลล์</dt><dd>เซลลูโลส + Algin</dd>
+            <dt>เด่น</dt><dd>แทลลัสแบ่งเป็น Blade, Stipe, Holdfast · Algin ใช้เป็นสารให้ความข้นในไอศกรีมและเครื่องสำอาง</dd>
+          </dl>
+        </div>
+      </div>
+
+      <div class="pane" id="a-rho">
+        <div class="card pane-art"><svg viewBox="-150 -6 600 232" role="img" aria-label="Red alga">
+          <use href="#redalga" width="300" height="220"/>
+          <g class="lbl"><line x1="-6" y1="66" x2="113" y2="70"/><circle cx="113" cy="70" r="2.6"/><text x="-12" y="71" text-anchor="end">Branched thallus</text></g>
+          <g class="lbl"><line x1="306" y1="201" x2="152" y2="210"/><circle cx="152" cy="210" r="2.6"/><text x="312" y="206">Holdfast</text></g>
+        </svg></div>
+        <div class="card pane-info">
+          <h3>Rhodophyta</h3><div class="sci">Porphyra, Gracilaria, Eucheuma</div><span class="chip">หลายเซลล์ (ส่วนใหญ่)</span><span class="chip gold">ทะเล</span>
+          <dl class="facts">
+            <dt>รงควัตถุ</dt><dd>Chlorophyll a + Phycobilin (Phycoerythrin)</dd>
+            <dt>สะสมอาหาร</dt><dd>Floridean starch</dd>
+            <dt>ผนังเซลล์</dt><dd>เซลลูโลส + Agar / Carrageenan</dd>
+            <dt>เด่น</dt><dd>อยู่ได้ในน้ำลึกกว่ากลุ่มอื่น · Porphyra คือสาหร่ายนอรี · วุ้น (Agar) ใช้เป็นอาหารเลี้ยงเชื้อ</dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+    <div class="notes">
+      <h4>Slide 9 · สาหร่าย 6 กลุ่ม (~80 วิ)</h4>
+      <p>ไล่ทีละกลุ่มแบบสั้น ๆ ยูกลีนา มีแฟลเจลลัมและ Eyespot กินอาหารได้เมื่อไม่มีแสง ไดอะตอมมีผนังซิลิกา ซากกลายเป็น Diatomaceous earth ไดโนแฟลเจลเลตทำให้เกิดน้ำทะเลสีแดง สาหร่ายสีเขียวใกล้ชิดพืชมากที่สุด เพราะมีรงควัตถุ แป้ง และผนังเซลลูโลสเหมือนพืช สาหร่ายสีน้ำตาลเป็นสาหร่ายขนาดใหญ่ในทะเล ให้ Algin และสาหร่ายสีแดงให้วุ้นและเป็นอาหารอย่างนอรี ถ้าเวลาจำกัด ให้ข้ามไปหน้าตารางสรุปแทน</p>
+    </div>
+  </section>
+
+  <!-- ================= 10 · ALGAE TABLE ================= -->
+  <section class="slide">
+    <div class="eyebrow rv">04 · Algae · Summary table</div>
+    <h2 class="rv" style="--d:.05s">เปรียบเทียบสาหร่าย 6 กลุ่ม</h2>
+    <table class="tbl rv" style="--d:.1s">
+      <thead><tr><th>กลุ่ม</th><th>ตัวอย่าง</th><th>รงควัตถุหลัก</th><th>อาหารสะสม</th><th>ผนังเซลล์ / ลักษณะเด่น</th></tr></thead>
+      <tbody>
+        <tr style="--c:#4ade80"><td>Euglenophyta</td><td><i>Euglena</i></td><td>Chl a, b</td><td>Paramylon</td><td>ไม่มีผนัง มี Pellicle · Eyespot</td></tr>
+        <tr style="--c:#fcd34d"><td>Chrysophyta</td><td>ไดอะตอม</td><td>Chl a, c + Fucoxanthin</td><td>น้ำมัน, Chrysolaminarin</td><td>ซิลิกา 2 ฝา (Frustule)</td></tr>
+        <tr style="--c:#fb923c"><td>Pyrrophyta</td><td>ไดโนแฟลเจลเลต</td><td>Chl a, c + Peridinin</td><td>แป้ง, น้ำมัน</td><td>แผ่นเซลลูโลส · Red tide</td></tr>
+        <tr style="--c:#22c55e"><td>Chlorophyta</td><td><i>Volvox, Spirogyra</i></td><td>Chl a, b</td><td>แป้ง</td><td>เซลลูโลส · คล้ายพืชมากที่สุด</td></tr>
+        <tr style="--c:#b45309"><td>Phaeophyta</td><td><i>Sargassum</i>, Kelp</td><td>Chl a, c + Fucoxanthin</td><td>Laminarin, Mannitol</td><td>เซลลูโลส + Algin · Holdfast, Stipe, Blade</td></tr>
+        <tr style="--c:#f43f5e"><td>Rhodophyta</td><td><i>Porphyra, Gracilaria</i></td><td>Chl a + Phycoerythrin</td><td>Floridean starch</td><td>เซลลูโลส + Agar / Carrageenan</td></tr>
+      </tbody>
+    </table>
+    <div class="notes">
+      <h4>Slide 10 · ตารางสรุป (~25 วิ)</h4>
+      <p>ตารางนี้สรุปสาหร่าย 6 กลุ่มไว้ในหน้าเดียว เพื่อนสามารถถ่ายภาพไว้ทบทวนได้ จุดที่มักออกสอบคือ ผนังซิลิกาของไดอะตอม Red tide จากไดโนแฟลเจลเลต และรงควัตถุ Fucoxanthin ของสาหร่ายสีน้ำตาล</p>
+    </div>
+  </section>
+
+  <!-- ================= 11 · BENEFITS & HARMS ================= -->
+  <section class="slide">
+    <div class="eyebrow rv">Importance</div>
+    <h2 class="rv" style="--d:.05s">ประโยชน์และโทษของโพรทิสต์</h2>
+    <div class="bh">
+      <div class="card good rv" style="--d:.1s">
+        <h3>ประโยชน์</h3>
+        <ul>
+          <li><b>ผู้ผลิตเบื้องต้นในแหล่งน้ำ</b> แพลงก์ตอนพืชเป็นฐานของห่วงโซ่อาหาร และผลิตออกซิเจนส่วนสำคัญของโลก</li>
+          <li><b>อาหาร</b> เช่น นอรี (<em>Porphyra</em>) และสาหร่ายผมนาง (<em>Gracilaria</em>)</li>
+          <li><b>วัตถุดิบอุตสาหกรรม</b> วุ้น Agar, Algin, Carrageenan, Diatomaceous earth</li>
+          <li><b>ผู้ย่อยสลาย</b> ราเมือกและราน้ำช่วยหมุนเวียนสารในระบบนิเวศ</li>
+          <li><b>อยู่ร่วมกับปะการัง</b> ไดโนแฟลเจลเลต Zooxanthellae สร้างอาหารให้ปะการัง</li>
+        </ul>
+      </div>
+      <div class="card bad rv" style="--d:.2s">
+        <h3>โทษ</h3>
+        <ul>
+          <li><b>มาลาเรีย</b> จาก <em>Plasmodium</em> (ยุงก้นปล่องเป็นพาหะ)</li>
+          <li><b>บิดอะมีบา</b> จาก <em>Entamoeba histolytica</em> · <b>ท้องเสีย</b> จาก <em>Giardia</em></li>
+          <li><b>โรคเหงาหลับ</b> จาก <em>Trypanosoma brucei</em></li>
+          <li><b>Red tide</b> สารพิษจากไดโนแฟลเจลเลตสะสมในหอยและสัตว์ทะเล</li>
+          <li><b>Algal bloom</b> สาหร่ายเพิ่มจำนวนมากในน้ำที่มีสารอาหารสูง ทำให้ออกซิเจนในน้ำลดลง น้ำเน่าเสีย</li>
+          <li><b>โรคพืช</b> <em>Phytophthora infestans</em> โรคใบไหม้ของมันฝรั่ง</li>
+        </ul>
+      </div>
+    </div>
+    <div class="notes">
+      <h4>Slide 11 · ประโยชน์/โทษ (~45 วิ)</h4>
+      <p>ประโยชน์ที่สำคัญที่สุดคือโพรทิสต์ที่สังเคราะห์ด้วยแสงเป็นผู้ผลิตในแหล่งน้ำ และผลิตออกซิเจนส่วนใหญ่ของโลกส่วนหนึ่ง สาหร่ายยังเป็นอาหารและวัตถุดิบอุตสาหกรรม ด้านโทษ มีทั้งโรคในคนที่เกิดจากโพรโทซัว เช่น มาลาเรีย บิดอะมีบา และโรคเหงาหลับ รวมถึง Red tide และ Algal bloom ที่ทำให้น้ำเสีย และโรคพืชจากราน้ำ</p>
+    </div>
+  </section>
+
+  <!-- ================= 12 · QUIZ ================= -->
+  <section class="slide">
+    <div class="eyebrow rv">Quick Quiz</div>
+    <h2 class="rv" style="--d:.05s">ทดสอบความเข้าใจ</h2>
+    <div class="quiz rv" style="--d:.1s" id="quizBox"></div>
+    <div class="notes">
+      <h4>Slide 12 · ควิซ (~60 วิ)</h4>
+      <p>ให้เพื่อนในห้องยกมือตอบแต่ละข้อ แล้วกดตัวเลือกเพื่อเฉลยพร้อมคำอธิบาย (กดเลข 1–4 ที่คีย์บอร์ดได้) มีทั้งหมด 5 ข้อ ถ้าเวลาไม่พอให้ตอบแค่ 2–3 ข้อแรก แล้วข้ามไปสรุป</p>
+    </div>
+  </section>
+
+  <!-- ================= 13 · SUMMARY ================= -->
+  <section class="slide">
+    <div class="eyebrow rv">Summary</div>
+    <h2 class="rv" style="--d:.05s">สรุป</h2>
+    <div class="sum3">
+      <div class="card rv" style="--d:.1s">
+        <h3>Protozoa <small>โพรโทซัว</small></h3>
+        <dl class="sf">
+          <dt>การดำรงชีวิต</dt><dd>Heterotroph · อิสระหรือเป็นปรสิต</dd>
+          <dt>โครงสร้าง</dt><dd>เซลล์เดียว ไม่มีผนังเซลล์</dd>
+          <dt>เคลื่อนที่</dt><dd>เท้าเทียม · ซิเลีย · แฟลเจลลัม (สปอโรซัวไม่มี)</dd>
+          <dt>ตัวอย่าง</dt><dd><i>Amoeba, Paramecium, Trypanosoma, Plasmodium</i></dd>
+          <dt>ความสำคัญ</dt><dd>ก่อโรคมาลาเรีย บิดอะมีบา เหงาหลับ</dd>
+        </dl>
+      </div>
+      <div class="card rv" style="--d:.18s">
+        <h3>Fungus-like <small>คล้ายรา</small></h3>
+        <dl class="sf">
+          <dt>การดำรงชีวิต</dt><dd>Heterotroph · ย่อยสลายสารอินทรีย์</dd>
+          <dt>โครงสร้าง</dt><dd>ราเมือก: มวลหลายนิวเคลียส/อะมีบาเดี่ยว · ราน้ำ: เส้นใย ผนังเซลลูโลส</dd>
+          <dt>เคลื่อนที่</dt><dd>ราเมือกคลานแบบอะมีบา · ราน้ำมีซูสปอร์ที่มีแฟลเจลลัม</dd>
+          <dt>ตัวอย่าง</dt><dd><i>Physarum, Dictyostelium, Saprolegnia, Phytophthora</i></dd>
+          <dt>ความสำคัญ</dt><dd>ผู้ย่อยสลาย · โรคใบไหม้มันฝรั่ง</dd>
+        </dl>
+      </div>
+      <div class="card rv" style="--d:.26s">
+        <h3>Algae <small>สาหร่าย</small></h3>
+        <dl class="sf">
+          <dt>การดำรงชีวิต</dt><dd>Autotroph · สังเคราะห์ด้วยแสง</dd>
+          <dt>โครงสร้าง</dt><dd>เซลล์เดียวถึงหลายเซลล์ ไม่มีราก ลำต้น ใบจริง (Thallus)</dd>
+          <dt>แบ่งกลุ่ม</dt><dd>6 กลุ่ม ตามรงควัตถุ อาหารสะสม ผนังเซลล์</dd>
+          <dt>ตัวอย่าง</dt><dd><i>Euglena, ไดอะตอม, Volvox, Sargassum, Porphyra</i></dd>
+          <dt>ความสำคัญ</dt><dd>ผู้ผลิต · อาหาร · Agar, Algin · บางชนิดก่อ Red tide / Algal bloom</dd>
+        </dl>
+      </div>
+    </div>
+    <div class="keys rv" style="--d:.32s">
+      <div class="keys-h">จุดที่ต้องจำ</div>
+      <div class="keys-g">
+        <div><b>Polyphyletic</b> โพรทิสต์ไม่ได้มีบรรพบุรุษร่วมกลุ่มเดียว</div>
+        <div><b>Mixotroph</b> เช่น Euglena ทำได้ทั้งสังเคราะห์แสงและกินอาหาร</div>
+        <div><b>ราน้ำ ≠ ราแท้</b> ผนังเซลลูโลส (ไม่ใช่ไคติน) และมีซูสปอร์มีแฟลเจลลัม</div>
+        <div><b>สาหร่ายสีเขียว</b> ใกล้ชิดพืชที่สุด เชื่อว่าเป็นบรรพบุรุษของพืช</div>
+      </div>
+    </div>
+    <div class="take rv" style="--d:.4s">โพรทิสต์ = ยูคาริโอตที่ไม่ใช่พืช สัตว์ หรือฟังไจ · เล็กจิ๋วแต่สำคัญต่อระบบนิเวศและสุขภาพของมนุษย์</div>
+    <div class="notes">
+      <h4>Slide 13 · สรุป (~30 วิ)</h4>
+      <p>สรุปคือโพรทิสต์เป็นยูคาริโอตที่ไม่ใช่พืช สัตว์ หรือฟังไจ แบ่งเป็นโพรโทซัว ที่กินอาหารสำเร็จรูป โพรทิสต์คล้ายรา ที่ย่อยสลายสารอินทรีย์ และสาหร่าย ที่สังเคราะห์ด้วยแสง แม้ตัวเล็กมาก แต่มีบทบาททั้งในระบบนิเวศ อุตสาหกรรม และสุขภาพของเรา ขอบคุณครับ/ค่ะ</p>
+    </div>
+  </section>
+
+  <div class="brand">KINGDOM PROTISTA · ชีววิทยา ม.6</div>
+</div>
+
+<!-- ============ UI ============ -->
+<div id="counter"></div>
+<div id="bar"></div>
+<button class="zone l" aria-label="หน้าก่อนหน้า"></button>
+<button class="zone r" aria-label="หน้าถัดไป"></button>
+<div id="toolbar">
+  <button id="prevBtn" title="ก่อนหน้า (←)">‹</button>
+  <div id="dots"></div>
+  <button id="nextBtn" title="ถัดไป (→ / Space)">›</button>
+  <button id="notesBtn" title="บทพูด (N)">N</button>
+  <button id="fsBtn" title="เต็มจอ (F)">⛶</button>
+</div>
+<div id="notes"><div id="notesBody"></div></div>
+
+<script src="script.js"></script>
+</body>
+</html>
